@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="public/main.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <title>CendraChat</title>
+    <script>
+        const roomName = "<%= roomName %>"
+    </script>
+    <script defer src="http://localhost:3002/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <style>
+        * {
+            margin: 1em;
+        }
+        
+        .container {
+            background-color: aquamarine
+        }
+        
+        #message-container div {
+            border: 1px solid black;
+            background-color: rgb(161, 161, 161);
+        }
+        
+        #message-container div:nth-child(2n) {
+            background-color: #FFF;
+        }
+        
+        #message-input {
+            width: 75%;
+        }
+        
+        #send-button {
+            width: 20%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div id="message-container" class="col"></div>
+        </div>
+        <div class="row">
+            <form id="send-container" class="col">
+                <input type="text" id="message-input">
+                <button type="submit" id="send-button">Enviar</button>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

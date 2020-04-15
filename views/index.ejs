@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link rel="stylesheet" href="public/main.css">
+    <title>CendraChat</title>
+    <script defer src="http://localhost:3002/socket.io/socket.io.js"></script>
+    <script defer src="script.js"></script>
+    <link>
+    <style>
+        * {
+            margin: 1em;
+        }
+        
+        .container {
+            background-color: aquamarine;
+            height: 80%;
+        }
+        
+        #botoentrar {
+            border: 1px solid black;
+            text-align: center;
+            width: 20%;
+        }
+        
+        #nomsala {
+            width: 70%;
+        }
+        
+        .nomsala {
+            width: 80%;
+            border: 1px solid black;
+            background-color: white;
+        }
+        
+        .link {
+            width: 20%;
+        }
+        
+        #separador {
+            width: 1%;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div id="room-container" class="row">
+            <% Object.keys(rooms).forEach(room => { %>
+                <div>
+                    <div class="col nomsala">
+                        <%= room %>
+                            <a href="/<%= room %>">Entrar</a>
+                    </div>
+                </div>
+
+
+                <% }) %>
+        </div>
+        <form action="/room" method="POST" class="row">
+            <input name="room" type="text" required id="nomsala">
+            <div id="separador"></div>
+            <button type="submit" id="botoentrar"><span class="glyphicon glyphicon-align-center"></span>Crear sala</button>
+        </form>
+    </div>
+
+</body>
+
+</html>
